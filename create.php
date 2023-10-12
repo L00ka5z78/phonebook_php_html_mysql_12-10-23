@@ -24,6 +24,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $errorMessage = "Please fill out all fields";
             break;
         }
+        /** add client to db
+         * 
+         * initialize empty fields to different values
+         */
+
+        $name = '';
+        $surname = '';
+        $email = '';
+        $phone = '';
+        $address = '';
+        $successMessage = "Client successfully added...";
     } while (false);
 }
 
@@ -45,6 +56,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
     <div class="container my-5">
         <h2>New Client</h2>
+
+        <?php
+        if (!empty($errorMessage)) {
+            echo "
+            <div class='alert alert-warning alert-dismissible fade show' role='alert'>
+                <strong>$errorMessage</strong>
+                <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+            </div> 
+            ";
+        }
+        ?>
+
 
         <form method="post">
             <div class="row mb-3">
