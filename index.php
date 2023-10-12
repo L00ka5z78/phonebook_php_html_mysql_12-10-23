@@ -43,24 +43,35 @@
                 if ($connection->connect_error) {
                     die("Connection failed: " . $connection->connect_error);
                 }
+                // read and display all clients from db
 
+                $sql = "SELECT * FROM clients";
+                $result = $connection->query($sql);
+
+                if (!$result) {
+                    die("Invalid query: " . $connection->error);
+                }
+
+                // read data of every single row
+                while ($row = $result->fetch_assoc()) {
+                    echo "
+                            <tr>
+                           
+                            <td>$row[name]</td>
+                            <td>$row[surname]</td>
+                            <td>$row[email]</td>
+                            <td>$row[phone]</td>
+                            <td>$row[address]</td>
+                            <td>$row[created_at]</td>
+                            <td>
+                               <a class='btn btn-primary btn-sm' href='/phonebook/edit.php?id=$row[id]'>Edit Client</a>
+                               <a class='btn btn-danger btn-sm' href='/phonebook/delete.php?id=$row[id]'>Remove Client</a>                       
+                            </td>
+                        </tr>
+                            ";
+                }
                 ?>
 
-
-
-
-                <tr>
-                    <td>eric</td>
-                    <td>cartman</td>
-                    <td>abc@we.com</td>
-                    <td>666777888</td>
-                    <td>South park</td>
-                    <td>11.11.2022</td>
-                    <td>
-                        <a class='btn btn-primary btn-sm' href='/phphone/edit.php'>Edit Client</a>
-                        <a class='btn btn-danger btn-sm' href='/phphone/delete.php'>Remove Client</a>
-                    </td>
-                </tr>
             </tbody>
         </table>
     </div>
