@@ -63,8 +63,8 @@
                             <td>$row[address]</td>
                             <td>$row[created_at]</td>
                             <td>
-                               <a class='btn btn-primary btn-sm' href='/phonebook/edit.php?id=$row[id]'>Edit Client</a>
-                               <a class='btn btn-danger btn-sm' href='/phonebook/delete.php?id=$row[id]'>Remove Client</a>                       
+                               <a class='btn btn-primary btn-sm' href='/phphone/edit.php?id=$row[id]'>Edit Client</a>
+                               <a class='btn btn-danger btn-sm' href='/phphone/delete.php?id=$row[id]'>Remove Client</a>                       
                             </td>
                         </tr>
                             ";

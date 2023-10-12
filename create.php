@@ -42,12 +42,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
          * initialize empty fields to different values
          */
 
+        $sql = "INSERT INTO clients (name, surname, email, phone, address)" .
+            "VALUES ('$name', '$surname', '$email', '$phone', '$address')";
+        $result = $connection->query($sql);
+
+        if (!$result) {
+            $errorMessage = "Invalid query: " . $connection->error;
+            break;
+        }
+
         $name = '';
         $surname = '';
         $email = '';
         $phone = '';
         $address = '';
         $successMessage = "Client successfully added...";
+
+        header("location: /phphone/index.php");
+        exit;
     } while (false);
 }
 
