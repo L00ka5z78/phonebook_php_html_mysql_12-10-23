@@ -29,6 +29,26 @@
             </thead>
 
             <tbody>
+
+                <?php
+                $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $database = "phonebook";
+
+                // database connection
+                $connection = new mysqli($servername, $username, $password, $database);
+
+                // check db connection
+                if ($connection->connect_error) {
+                    die("Connection failed: " . $connection->connect_error);
+                }
+
+                ?>
+
+
+
+
                 <tr>
                     <td>eric</td>
                     <td>cartman</td>
