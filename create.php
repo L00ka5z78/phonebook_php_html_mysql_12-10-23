@@ -1,3 +1,35 @@
+<?php
+$name = '';
+$surname = '';
+$email = '';
+$phone = '';
+$address = '';
+
+$errorMessage = "";
+$successMessage = "";
+
+// check if data is transmitted within post method, then we can initialize variables with data from form
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $name = $_POST["name"];
+    $surname = $_POST["surname"];
+    $email = $_POST["email"];
+    $phone = $_POST["phone"];
+    $address = $_POST["address"];
+
+    // check if we have empty fields do{} while loop which goes only once throug the code
+
+    do {
+        if (empty($name) || empty($surname) || empty($email) || empty($phone) || empty($address)) {
+            $errorMessage = "Please fill out all fields";
+            break;
+        }
+    } while (false);
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,35 +50,35 @@
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label" for="">First Name</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" name="name" value="">
+                    <input type="text" class="form-control" name="name" value="<?php echo $name; ?>">
                 </div>
             </div>
 
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label" for="">Last Name</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" name="surname" value="">
+                    <input type="text" class="form-control" name="surname" value="<?php echo $surname; ?>">
                 </div>
             </div>
 
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label" for="">E-mail</label>
                 <div class="col-sm-6">
-                    <input type="email" class="form-control" name="email" value="">
+                    <input type="email" class="form-control" name="email" value="<?php echo $email; ?>">
                 </div>
             </div>
 
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label" for="">Phone Number</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" name="phone" value="">
+                    <input type="text" class="form-control" name="phone" value="<?php echo $phone; ?>">
                 </div>
             </div>
 
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label" for="">Address</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" name="address" value="">
+                    <input type="text" class="form-control" name="address" value="<?php echo $address; ?>">
                 </div>
             </div>
 

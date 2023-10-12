@@ -55,8 +55,7 @@
                 // read data of every single row
                 while ($row = $result->fetch_assoc()) {
                     echo "
-                            <tr>
-                           
+                            <tr>                           
                             <td>$row[name]</td>
                             <td>$row[surname]</td>
                             <td>$row[email]</td>
