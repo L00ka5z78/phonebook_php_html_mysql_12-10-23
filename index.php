@@ -11,7 +11,39 @@
 </head>
 
 <body>
+    <div class="container my-5">
+        <h2>Clients list</h2>
+        <a class="btn btn-primary" href="/phphone/create.php" role="button">New Client</a>
+        <br>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                    <th>Created At</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
 
+            <tbody>
+                <tr>
+                    <td>eric</td>
+                    <td>cartman</td>
+                    <td>abc@we.com</td>
+                    <td>666777888</td>
+                    <td>South park</td>
+                    <td>11.11.2022</td>
+                    <td>
+                        <a class='btn btn-primary btn-sm' href='/phphone/edit.php'>Edit Client</a>
+                        <a class='btn btn-danger btn-sm' href='/phphone/delete.php'>Remove Client</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 
 </html>
