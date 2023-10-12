@@ -49,8 +49,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Client</title>
     <!-- bootstrap styling taken from web -->
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+
+    <!-- js bootstrap added from bootstrap cdn links to solve the issue with closing X mark -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
 </head>
 
 <body>
@@ -104,6 +108,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <input type="text" class="form-control" name="address" value="<?php echo $address; ?>">
                 </div>
             </div>
+
+            <?php
+            if (!empty($successMessage)) {
+                echo "
+                <div class='row mb-3'>
+                    <div class='alert alert-success alert-dismissible fade show' role='alert'>                
+                        <div class='offset-sm-3 col-sm-6'>
+                            <strong>$successMessage</strong>
+                            <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+                        </div>
+                    </div>
+                </div>
+                ";
+            }
+            ?>
 
 
 
