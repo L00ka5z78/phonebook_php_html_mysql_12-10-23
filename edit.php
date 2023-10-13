@@ -1,4 +1,17 @@
 <?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "phonebook";
+
+// connect database 
+$connection = new mysqli($servername, $username, $password, $database);
+
+// check db connection
+if ($connection->connect_error) {
+    die("Connection failed" . $connection->connect_error);
+}
+
 $name = '';
 $surname = '';
 $email = '';
@@ -11,11 +24,60 @@ $successMessage = "";
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     // check if we hav clients data (id)
     if (!isset($_GET["id"])) {
-        header("location: /phonebook/index.php");
+        header("location: /phphone/index.php");
         exit;
     }
     $id = $_GET["id"];
+
+    //read the required row in db table
+
+    $sql = "SELECT * FROM clients WHERE id=$id";
+    $result = $connection->query($sql);
+    $row = $result->fetch_assoc();
+
+    if (!$row) {
+        header("location: /phphone/index.php");
+        exit;
+    }
+
+    // form will be prefilled with this data
+    $name = $row["name"];
+    $surname = $row["surname"];
+    $email = $row["email"];
+    $phone = $row["phone"];
+    $address = $row["address"];
 } else {
+    // post method: update clients data
+    //read clients data
+    $id = $_POST["id"];
+    $name = $_POST["name"];
+    $surname = $_POST["surname"];
+    $email = $_POST["email"];
+    $phone = $_POST["phone"];
+    $address = $_POST["address"];
+
+
+
+    do {
+        if (empty($id) || empty($name) || empty($surname) || empty($email) || empty($phone) || empty($address)) {
+            $errorMessage = "Please fill out required fields";
+            break;
+        }
+        $sql = "UPDATE clients " .
+            "SET name = '$name', surname = '$surname', email = '$email', phone = '$phone', address = '$address'" .
+            "WHERE id=$id";
+
+        $result = $connection->query($sql);
+
+        //check if query is correctly executed
+        if (!$result) {
+            $errorMessage = "Invalid query: " . $connection->error;
+            break;
+        }
+        $successMessage = "Client updated successfully";
+        header("location: /phphone/index.php");
+        exit;
+    } while (false);
 }
 ?>
 
