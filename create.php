@@ -17,7 +17,6 @@ $surname = '';
 $email = '';
 $phone = '';
 $address = '';
-
 $errorMessage = "";
 $successMessage = "";
 
@@ -62,9 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit;
     } while (false);
 }
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -78,8 +75,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <!-- js bootstrap added from bootstrap cdn links to solve the issue with closing X mark -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-
 </head>
 
 <body>
@@ -96,7 +91,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             ";
         }
         ?>
-
 
         <form method="post">
             <div class="row mb-3">
@@ -148,8 +142,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 ";
             }
             ?>
-
-
 
             <div class="row mb-3">
                 <div class="offset-sm-3 col-sm-3 d-grid">
