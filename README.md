@@ -61,14 +61,6 @@ Looses:
 
 ## SCREENS
 
-
-![2023-10-13 (8)](https://github.com/L00ka5z78/phonebook_php_html_mysql_12-10-23/assets/110019733/bafaba70-fb51-4d5b-8d6a-1c76bf9a082c)
-![2023-10-13 (7)](https://github.com/L00ka5z78/phonebook_php_html_mysql_12-10-23/assets/110019733/502e0796-b911-423e-9186-a2f8aafc1fb4)
-![2023-10-13 (6)](https://github.com/L00ka5z78/phonebook_php_html_mysql_12-10-23/assets/110019733/0ea51804-fd96-433f-bb90-86d22586bbf4)
-![2023-10-13 (5)](https://github.com/L00ka5z78/phonebook_php_html_mysql_12-10-23/assets/110019733/85802ebe-ba75-4c55-b437-641babbbcc6f)
-![2023-10-13 (4)](https://github.com/L00ka5z78/phonebook_php_html_mysql_12-10-23/assets/110019733/a97ccb65-58f6-4ffa-be56-030f4a4e606c)
-![2023-10-13 (3)](https://github.com/L00ka5z78/phonebook_php_html_mysql_12-10-23/assets/110019733/f83cf53d-0c99-4e1d-a8b0-24ce9e6e89b6)
-![2023-10-13 (2)](https://github.com/L00ka5z78/phonebook_php_html_mysql_12-10-23/assets/110019733/56d1596d-edd1-4579-a196-5fd4f093cfc4)
-![2023-10-13 (1)](https://github.com/L00ka5z78/phonebook_php_html_mysql_12-10-23/assets/110019733/f65be6d0-9fa8-4e98-bfa4-329f4765f43d)
-![2023-10-13](https://github.com/L00ka5z78/phonebook_php_html_mysql_12-10-23/assets/110019733/b4c051ab-2864-400c-b935-41248ffd09d6)
-
+![2023-10-13 (9)](https://github.com/L00ka5z78/phonebook_php_html_mysql_12-10-23/assets/110019733/26bb80dd-c480-4162-b78d-3bd8ed8e4f81)
+![2023-10-13 (11)](https://github.com/L00ka5z78/phonebook_php_html_mysql_12-10-23/assets/110019733/f1bc768e-02a0-4160-8603-51a771e788a7)
+![2023-10-13 (10)](https://github.com/L00ka5z78/phonebook_php_html_mysql_12-10-23/assets/110019733/6eef118f-3f8a-43cf-84fb-128541633e13)
