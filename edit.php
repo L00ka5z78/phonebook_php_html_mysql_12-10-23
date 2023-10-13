@@ -1,3 +1,25 @@
+<?php
+$name = '';
+$surname = '';
+$email = '';
+$phone = '';
+$address = '';
+
+$errorMessage = "";
+$successMessage = "";
+
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+    // check if we hav clients data (id)
+    if (!isset($_GET["id"])) {
+        header("location: /phonebook/index.php");
+        exit;
+    }
+    $id = $_GET["id"];
+} else {
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +38,7 @@
 
 <body>
     <div class="container my-5">
-        <h2>New Client</h2>
+        <h2>Edit Client Details</h2>
 
         <?php
         if (!empty($errorMessage)) {
@@ -31,6 +53,9 @@
 
 
         <form method="post">
+
+            <input type="hidden" name="id" value="<?php echo $id; ?>">
+
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label" for="">First Name</label>
                 <div class="col-sm-6">
