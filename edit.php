@@ -1,3 +1,83 @@
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "phonebook";
+
+// connect database 
+$connection = new mysqli($servername, $username, $password, $database);
+
+// check db connection
+if ($connection->connect_error) {
+    die("Connection failed" . $connection->connect_error);
+}
+
+$name = '';
+$surname = '';
+$email = '';
+$phone = '';
+$address = '';
+$errorMessage = "";
+$successMessage = "";
+
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+    // check if we hav clients data (id)
+    if (!isset($_GET["id"])) {
+        header("location: /phphone/index.php");
+        exit;
+    }
+    $id = $_GET["id"];
+
+    //read the required row in db table
+
+    $sql = "SELECT * FROM clients WHERE id=$id";
+    $result = $connection->query($sql);
+    $row = $result->fetch_assoc();
+
+    if (!$row) {
+        header("location: /phphone/index.php");
+        exit;
+    }
+
+    // form will be prefilled with this data
+    $name = $row["name"];
+    $surname = $row["surname"];
+    $email = $row["email"];
+    $phone = $row["phone"];
+    $address = $row["address"];
+} else {
+    // post method: update clients data
+    //read clients data
+    $id = $_POST["id"];
+    $name = $_POST["name"];
+    $surname = $_POST["surname"];
+    $email = $_POST["email"];
+    $phone = $_POST["phone"];
+    $address = $_POST["address"];
+
+    do {
+        if (empty($id) || empty($name) || empty($surname) || empty($email) || empty($phone) || empty($address)) {
+            $errorMessage = "Please fill out required fields";
+            break;
+        }
+        $sql = "UPDATE clients " .
+            "SET name = '$name', surname = '$surname', email = '$email', phone = '$phone', address = '$address'" .
+            "WHERE id=$id";
+
+        $result = $connection->query($sql);
+
+        //check if query is correctly executed
+        if (!$result) {
+            $errorMessage = "Invalid query: " . $connection->error;
+            break;
+        }
+        $successMessage = "Client updated successfully";
+        header("location: /phphone/index.php");
+        exit;
+    } while (false);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,13 +90,17 @@
 
     <!-- js bootstrap added from bootstrap cdn links to solve the issue with closing X mark -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-
 </head>
 
 <body>
     <div class="container my-5">
-        <h2>New Client</h2>
+
+        <?php
+        include("templates/nav.php");
+        ?>
+        <h2>Edit Client Details</h2>
+
+
 
         <?php
         if (!empty($errorMessage)) {
@@ -29,8 +113,10 @@
         }
         ?>
 
-
         <form method="post">
+
+            <input type="hidden" name="id" value="<?php echo $id; ?>">
+
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label" for="">First Name</label>
                 <div class="col-sm-6">
@@ -81,8 +167,6 @@
             }
             ?>
 
-
-
             <div class="row mb-3">
                 <div class="offset-sm-3 col-sm-3 d-grid">
                     <button type="submit" class="btn btn-primary">Submit</button>
@@ -92,6 +176,10 @@
                 </div>
             </div>
         </form>
+
+        <?php
+        include("templates/footer.php");
+        ?>
     </div>
 </body>
 
