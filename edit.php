@@ -94,7 +94,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 <body>
     <div class="container my-5">
+
+        <?php
+        include("templates/nav.php");
+        ?>
         <h2>Edit Client Details</h2>
+
+
 
         <?php
         if (!empty($errorMessage)) {
@@ -170,6 +176,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                 </div>
             </div>
         </form>
+
+        <?php
+        include("templates/footer.php");
+        ?>
     </div>
 </body>
 
