@@ -79,6 +79,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <body>
     <div class="container my-5">
+
+        <?php
+        include("templates/nav.php");
+        ?>
+
         <h2>New Client</h2>
 
         <?php
@@ -152,6 +157,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
             </div>
         </form>
+
+        <?php
+        include("templates/footer.php");
+        ?>
     </div>
 </body>
 

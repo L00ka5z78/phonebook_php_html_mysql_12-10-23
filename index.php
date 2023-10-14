@@ -12,6 +12,12 @@
 
 <body>
     <div class="container my-5">
+
+        <?php
+        include("templates/nav.php");
+        include("public/banner.php");
+        ?>
+
         <h2>Clients list</h2>
         <a class="btn btn-primary" href="/phphone/create.php" role="button">New Client</a>
         <br>
@@ -73,6 +79,11 @@
 
             </tbody>
         </table>
+
+        <?php
+        include("templates/footer.php");
+        ?>
+
     </div>
 </body>
 
