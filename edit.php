@@ -1,16 +1,18 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "phonebook";
+require_once "utils/db.inc.php";
 
-// connect database 
-$connection = new mysqli($servername, $username, $password, $database);
+// $servername = "localhost";
+// $username = "root";
+// $password = "";
+// $database = "phonebook";
 
-// check db connection
-if ($connection->connect_error) {
-    die("Connection failed" . $connection->connect_error);
-}
+// // connect database 
+// $connection = new mysqli($servername, $username, $password, $database);
+
+// // check db connection
+// if ($connection->connect_error) {
+//     die("Connection failed" . $connection->connect_error);
+// }
 
 $name = '';
 $surname = '';

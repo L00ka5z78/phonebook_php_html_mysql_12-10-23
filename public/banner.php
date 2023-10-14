@@ -6,4 +6,4 @@
         margin-bottom: 1rem
     }
 </style>
-<img class="img-fluid" id="banner" src="https://l00ka5z78-cs50-final-project-careers-website.geriatrichardma.repl.co/static/banner.jpg" alt="imgage">
+<img class="img-fluid" id="banner" src="./banner.jpg" alt="imgage">
